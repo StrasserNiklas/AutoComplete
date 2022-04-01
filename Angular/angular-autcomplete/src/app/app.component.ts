@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AutoCompleteElement } from './web-components/auto-complete-web-component';
 import './web-components/auto-complete-web-component.ts'
 
 @Component({
@@ -17,10 +18,10 @@ export class AppComponent {
   private lesgo : string = "";
 
   ngAfterViewInit() {
-    this.httpClient.get("assets/names.txt", { responseType: 'text' }).subscribe(data => this.setSomething(data));;
+    this.httpClient.get("assets/names.txt", { responseType: 'text' }).subscribe(data => this.setData(data));;
   }
 
-  setSomething(data: string) {
+  setData(data: string) {
     this.lesgo = data;
 
     var split = this.lesgo.split('\r\n');
